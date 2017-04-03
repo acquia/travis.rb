@@ -332,8 +332,8 @@ module Travis
 
         def check_ssl
           raw(:head, '/') if ssl == SSL_OPTIONS
-        rescue SSLError => error
-          self.ssl = {}
+        rescue Exception => error
+          self.ssl = {} if error.class == Travis::Client::SSLError
         end
     end
   end

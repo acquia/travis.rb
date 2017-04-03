@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   # general infos
   s.name        = "travis"
-  s.version     = "1.8.2"
+  s.version     = "1.8.8"
   s.description = "CLI and Ruby client library for Travis CI"
   s.homepage    = "https://github.com/travis-ci/travis.rb"
   s.summary     = "Travis CI client"
@@ -18,48 +18,53 @@ Gem::Specification.new do |s|
     "Aaron Hill",
     "Peter Souter",
     "Christopher Grim",
+    "Joe Corcoran",
     "Peter van Dijk",
     "Max Barnash",
-    "Carlos Palhares",
     "Dan Buch",
     "Mathias Meyer",
+    "carlad",
+    "Carlos Palhares",
+    "Ren\xC3\xA9e Hendricksen",
+    "David Rodr\xC3\xADguez",
     "Corinna Wiesner",
     "Stefan Nordhausen",
     "Thais Camilo and Konstantin Haase",
     "Andreas Tiefenthaler",
-    "David Rodr\xC3\xADguez",
-    "Jon-Erik Schneiderhan",
-    "Jonne Ha\xC3\x9F",
-    "Josh Kalderimis",
-    "Julia S.Simon",
-    "Justin Lambert",
-    "Benjamin Manns",
-    "Laurent Petit",
-    "Maarten van Vliet",
-    "Mario Visic",
-    "Adam Lavin",
     "Matthias Bussonnier",
-    "Basarat Ali Syed",
-    "Eric Herot",
+    "Michael Mior",
     "Miro Hron\xC4\x8Dok",
     "Neamar",
     "Nicolas Bessi (nbessi)",
     "Peter Bengtsson",
-    "Adrien Brault",
     "Piotr Sarnacki",
     "Rapha\xC3\xABl Pinson",
     "Rob Hoelz",
     "Robert Van Voorhees",
-    "Tobias Wilken",
     "Zachary Gershman",
     "Zachary Scott",
     "jeffdh",
     "john muhl",
-    "Michael Mior",
-    "George Millo",
+    "Tobias Wilken",
+    "Adam Lavin",
+    "Adrien Brault",
+    "Basarat Ali Syed",
+    "Benjamin Manns",
     "Daniel Chatfield",
+    "Eric Herot",
+    "George Millo",
+    "Jacob Atzen",
     "Jacob Burkhart",
-    "Joe Rafaniello"
+    "Joe Rafaniello",
+    "Jon-Erik Schneiderhan",
+    "Jonas Chromik",
+    "Jonne Ha\xC3\x9F",
+    "Josh Kalderimis",
+    "Julia S.Simon",
+    "Justin Lambert",
+    "Laurent Petit",
+    "Maarten van Vliet",
+    "Mario Visic"
   ]
 
   # generated from git shortlog -sne
@@ -71,48 +76,54 @@ Gem::Specification.new do |s|
     "aa1ronham@gmail.com",
     "p.morsou@gmail.com",
     "chrisg@luminal.io",
+    "joe@corcoran.io",
     "peter.van.dijk@netherlabs.nl",
     "i.am@anhero.ru",
+    "meyer@paperplanes.de",
     "me@xjunior.me",
     "dan@meatballhat.com",
-    "meyer@paperplanes.de",
+    "renee@travis-ci.org",
+    "at@an-ti.eu",
     "wiesner@avarteq.de",
+    "deivid.rodriguez@gmail.com",
     "stefan.nordhausen@immobilienscout24.de",
     "dev+narwen+rkh@rkh.im",
-    "at@an-ti.eu",
-    "deivid.rodriguez@gmail.com",
-    "jon-erik.schneiderhan@meyouhealth.com",
+    "carlad@users.noreply.github.com",
+    "jrafanie@users.noreply.github.com",
+    "Jonas.Chromik@student.hpi.uni-potsdam.de",
     "me@jhass.eu",
     "josh.kalderimis@gmail.com",
     "julia.simon@biicode.com",
     "jlambert@eml.cc",
-    "benmanns@gmail.com",
+    "georgejulianmillo@gmail.com",
     "laurent.petit@gmail.com",
     "maartenvanvliet@gmail.com",
     "mario@mariovisic.com",
-    "adam@lavoaster.co.uk",
-    "bussonniermatthias@gmail.com",
-    "basaratali@gmail.com",
     "eric.github@herot.com",
+    "bussonniermatthias@gmail.com",
+    "chatfielddaniel@gmail.com",
+    "mmior@uwaterloo.ca",
     "miro@hroncok.cz",
     "neamar@neamar.fr",
     "nbessi@users.noreply.github.com",
     "peterbe@mozilla.com",
-    "adrien.brault@gmail.com",
+    "benmanns@gmail.com",
+    "basaratali@gmail.com",
     "drogus@gmail.com",
     "raphael.pinson@camptocamp.com",
+    "adrien.brault@gmail.com",
     "rob@hoelz.ro",
     "rcvanvo@gmail.com",
+    "jeffdh@gmail.com",
+    "git@johnmuhl.com",
     "tw@cloudcontrol.de",
     "pair+zg@pivotallabs.com",
     "e@zzak.io",
-    "jeffdh@gmail.com",
-    "git@johnmuhl.com",
-    "mmior@uwaterloo.ca",
-    "georgejulianmillo@gmail.com",
-    "chatfielddaniel@gmail.com",
+    "carla@travis-ci.org",
+    "adam@lavoaster.co.uk",
     "jburkhart@engineyard.com",
-    "jrafanie@users.noreply.github.com"
+    "jatzen@gmail.com",
+    "jon-erik.schneiderhan@meyouhealth.com"
   ]
 
   # generated from git ls-files
@@ -306,9 +317,12 @@ Gem::Specification.new do |s|
   s.add_dependency "faraday_middleware",    "~> 0.9", ">= 0.9.1"
   s.add_dependency "highline",              "~> 1.6"
   s.add_dependency "backports"
+  s.add_dependency "net-http-persistent",   "~> 2.9" if RUBY_VERSION < "2.1"
   s.add_dependency "gh",                    "~> 0.13"
+  s.add_dependency "addressable",           "~> 2.4.0" if RUBY_VERSION < "2.0"
   s.add_dependency "launchy",               "~> 2.1"
   s.add_dependency "typhoeus",              "~> 0.6", ">= 0.6.8"
+  s.add_dependency "json",                  "~> 1.8" if RUBY_VERSION < "2.0"
   s.add_dependency "pusher-client",         "~> 0.4"
   s.add_development_dependency "rspec",     "~> 2.12"
   s.add_development_dependency "sinatra",   "~> 1.3"
