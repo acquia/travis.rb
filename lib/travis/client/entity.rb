@@ -169,7 +169,12 @@ module Travis
       end
 
       def relations
-        self.class.relations.map { |r| public_send(r) }.flatten(1)
+        relations = self.class.relations.map { |r| public_send(r) }
+
+        # Don't include nil relations to work around an issue where log_id may
+        # not be set.
+        # @see https://github.com/travis-ci/travis.rb/issues/493
+        relations.select { |r| !r.nil? }.flatten(1)
       end
 
       def restartable?
